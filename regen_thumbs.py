@@ -335,9 +335,20 @@ defaultSeries = config.get('series', 'default')
 #array of target thumbnail directories
 targets = {}
 targets[1] = config.get("targets", "targets[1]")
-											
-#makeThumbsMovies()		
-makeThumbsSets()
-#makeThumbsSeries()
-#makeThumbsSeasons()							
-#makeThumbsEpisodes()
+
+enableMovies = int(config.get('types', 'movies'))
+enableSets = int(config.get('types', 'sets'))
+enableSeries = int(config.get('types', 'series'))
+enableSeasons = int(config.get('types', 'seasons'))
+enableEpisodes = int(config.get('types', 'episodes'))
+
+if enableMovies == 1:
+	makeThumbsMovies()		
+if enableSets == 1:
+	makeThumbsSets()
+if enableSeries == 1:
+	makeThumbsSeries()
+if enableSeasons == 1:
+	makeThumbsSeasons()							
+if enableEpisodes == 1:
+	makeThumbsEpisodes()
